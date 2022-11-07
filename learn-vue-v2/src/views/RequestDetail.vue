@@ -82,28 +82,6 @@
       </div>
     </div>
   </section>
-
-  <section class="menu_screen">
-    <div class="menu_screen__container">
-      <div class="menu_screen__body  w-50 py-3">
-        <div class="menu d-flex flex-column align-items-center">
-          <h3 class="my-2">Меню</h3>
-
-          <div class="menu__element my-2 text-center w-75">
-            Пункт 1
-          </div>
-          <div class="menu__element my-2 text-center w-75">
-            Пункт 1
-          </div>
-          <div class="menu__element my-2 text-center w-75">
-            Пункт 1
-          </div>
-          <button class="menu_screen__button btn btn-success" type="button">X</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </template>
 
 <script>
@@ -148,16 +126,6 @@ export default {
     },
   },
   mounted() {
-    $(function() {
-      console.log( "ready!" );
-      $(".menu__element").click(function () {
-        $(".menu_screen").show()
-      });
-
-      $(".menu_screen__button").click(function () {
-        $(".menu_screen").hide()
-      });
-    })
   },
 }
 
