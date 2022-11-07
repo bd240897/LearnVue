@@ -23,7 +23,7 @@ export default ({
                     console.log('SUCCESS!!');
 
                     commit('SET_ID_IMG', x.data.id)
-                    router.push({ name: 'Request'})
+                    // router.push({ name: 'Request'})
                     // _this.$store.state.id_request = x.data.id
                     // _this.$router.push({ name: 'Request' })
                 })

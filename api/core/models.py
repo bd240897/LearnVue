@@ -8,10 +8,11 @@ from django.contrib.auth.models import User
 
 class Data(models.Model):
     """Комментарии"""
-    time = models.DateTimeField(auto_now=True)
+    name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=200, blank=True, null=True)
     img = models.ImageField(upload_to="learnVue/post_image/")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='data_user', default=1)
+    time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.id)

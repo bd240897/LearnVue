@@ -371,3 +371,15 @@ https://www.youtube.com/watch?v=LPo29ygf0wA
     # колонки по центру в2
         <div class="row">
             <div class="col-3 bg-success mx-auto">
+
+
+##### вертикальая лини через границы
+https://html5css.ru/howto/howto_css_vertical_line.php
+border-left: 6px solid green;
+
+##### прибить футер к ннизу
+https://falbar.ru/article/luchshij-sposob-prizhat-futer-ispolzuya-flexbox
+https://www.youtube.com/watch?v=GGiHxIOmPaE&list=PLNkWIWHIRwMG0EUBS8rvTRVNL9IcxcawW&index=12
+parant flex-direction column
+min-heaight: 100hv
+section flex-grow 1

@@ -23,6 +23,7 @@ class UploadView(generics.GenericAPIView):
         # парсим запрос
         file = request.data.get('file')
         description = request.data.get('description')
+        name = request.data.get('name')
 
         # если не передали файл в запросе
         if not file:
@@ -46,6 +47,11 @@ class UploadView(generics.GenericAPIView):
         # если попутно передали описание
         if description:
             a.description = request.data.get('description')
+            a.save()
+
+        # если попутно передали описание
+        if name:
+            a.name = request.data.get('name')
             a.save()
 
         # ответ - id созданного запроса

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import RequestList from '../views/RequestList.vue'
-import Request from '../views/Request.vue'
-import CreateRequest from '../views/CreateRequest.vue'
+import RequestDetail from '../views/RequestDetail.vue'
+import RequestCreate from '../views/RequestCreate.vue'
 import TestView from "../views/TestView";
 
 const routes = [
@@ -18,13 +18,13 @@ const routes = [
   },
   {
     path: '/request/look',
-    name: 'Request',
-    component: Request
+    name: 'RequestDetail',
+    component: RequestDetail
   },
   {
     path: '/request/create',
-    name: 'CreateRequest',
-    component: CreateRequest
+    name: 'RequestCreate',
+    component: RequestCreate
   },
   {
   path: '/test',
