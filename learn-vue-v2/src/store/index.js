@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
 import request_list from "./modules/request_list/";
-import request from "./modules/request/";
+import request_detail from "./modules/request_detail/";
 import login from "./modules/login/";
-import create_request from "./modules/create_request/";
+import request_create from "./modules/request_create/";
 
 export default createStore({
   state() {
@@ -21,8 +21,8 @@ export default createStore({
   },
   modules: {
     request_list,
-    request,
+    request_detail,
     login,
-    create_request,
+    request_create,
   }
 })

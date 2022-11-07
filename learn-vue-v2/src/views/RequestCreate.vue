@@ -48,7 +48,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("create_request", ["sendData"]),
+    ...mapActions("request_create", ["sendData"]),
 
     handleFileUpload(){
       this.file = this.$refs.file.files[0];

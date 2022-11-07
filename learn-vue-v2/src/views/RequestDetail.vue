@@ -101,13 +101,13 @@ export default {
     this.loadData({id:this.id});
   },
   computed: {
-    ...mapState('request', ['received_img', 'received_description', 'received_name', "received_user", "received_time"]),
+    ...mapState('request_detail', ['received_img', 'received_description', 'received_name', "received_user", "received_time"]),
     id() {
       return this.$route.params.id
     },
   },
   methods: {
-    ...mapActions('request', ['loadData']),
+    ...mapActions('request_detail', ['loadData']),
     nextRequest(){
       let newId = parseInt(this.id) + 1
       this.$router.push({ name: 'RequestDetail', params: { id: newId }})
