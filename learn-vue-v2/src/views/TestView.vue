@@ -1,13 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-primary"
-            data-bs-target="#collapseTarget"
-            data-bs-toggle="collapse">
-      Bootstrap collapse
-    </button>
-    <div class="collapse py-2" id="collapseTarget">
-      This is the toggle-able content!
-    </div>
+    {{this.$route.params.id}}
   </div>
 </template>
 
@@ -25,11 +18,9 @@ export default {
   },
 
   mounted() {
-    this.getImg({id:10});
   },
 
   methods: {
-    ...mapActions("request", ["getImg"]),
   }
 }
 </script>

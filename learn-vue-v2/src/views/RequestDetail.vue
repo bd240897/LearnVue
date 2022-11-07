@@ -1,9 +1,4 @@
 <template>
-<!--  <div>-->
-<!--    <h1>req</h1>-->
-<!--    {{img_url}}-->
-<!--  </div>-->
-<!--  <img v-bind:src="img_url" />-->
   <section class="request_detail h-100">
     <div class="container d-flex h-100 justify-content-center align-items-center">
 
@@ -32,20 +27,20 @@
             <div class="info">
 
               <h3 class="info__header text-center my-2">Подробности заявки</h3>
-
+              <h4 class="info__header text-center my-2"> Имя заявки: {{received_name}} </h4>
               <div class="block_img container-fluid mb-3">
 
                 <div class="block_img__body row">
                   <div class="col-6">
                     <h5 class="img_head text-center">Исходное фото</h5>
                     <div>
-                      <img class="img_item" src="@/assets/img/starfield.png">
+                      <img class="img_item" v-bind:src="received_img">
                     </div>
                   </div>
                   <div class="col-6">
                     <h5 class="img_head text-center">Обработанное</h5>
                     <div>
-                      <img class="img_item" src="@/assets/img/starfield.png">
+                      <img class="img_item" src="">
                     </div>
                   </div>
                 </div>
@@ -56,19 +51,12 @@
                 <div class="block_text__body row ">
 
                   <div class="d-flex justify-content-between">
-                    <p class="block_text__user">Пользователь: Amid</p>
-                    <p class="block_text__data">Дата: 10.10.2010 17:35</p>
+                    <p class="block_text__user">Пользователь: {{received_user}}</p>
+                    <p class="block_text__data">Дата: {{received_time}}</p>
                   </div>
 
                   <div>
-                    <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                      Duis mollis, est non commodo luctus. Vivamus sagittis lacus vel augue
-                      laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue
-                      laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
-                      Vivamus sagittis lacus vel augue
-                      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                      Duis mollis, est non commodo luctus. Vivamus sagittis lacus vel augue
-                      laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel </p>
+                    <p> {{received_description}} </p>
                   </div>
                 </div>
               </div>
@@ -76,14 +64,13 @@
               <div class="block_button container-fluid mb-3">
                 <div class="block_button__body row justify-content-between">
                   <div class="col-2">
-                    <button class="create_body__button btn btn-success" type="button">Предыдущий
-                    </button>
+                    <button v-on:click="previousRequest" class="create_body__button btn btn-success" type="button">Предыдущий</button>
                   </div>
                   <div class="col-2">
                     <button class="create_body__button btn btn-success" type="button">Отметить</button>
                   </div>
                   <div class="col-2">
-                    <button class="create_body__button btn btn-success" type="button">Следующий</button>
+                    <button v-on:click="nextRequest" class="create_body__button btn btn-success" type="button">Следующий</button>
                   </div>
                 </div>
               </div>
@@ -124,29 +111,41 @@ import axios from "axios";
 import { mapState, mapActions } from "vuex";
 // import "../assets/js/request_detail.js";
 import $ from "jquery";
+import router from "@/router";
 
 export default {
   name: "RequestDetail",
   data(){
     return {
-      // img_url: ''
     }
   },
+  created() {
+    this.loadData({id:this.id});
+  },
   computed: {
-    ...mapState('request', ['img_url',]),
-    ...mapState('create_request', ['img_id',]),
+    ...mapState('request', ['received_img', 'received_description', 'received_name', "received_user", "received_time"]),
+    id() {
+      return this.$route.params.id
+    },
   },
   methods: {
-    ...mapActions('request', ['getImg',])
+    ...mapActions('request', ['loadData']),
+    nextRequest(){
+      let newId = parseInt(this.id) + 1
+      this.$router.push({ name: 'RequestDetail', params: { id: newId }})
+    },
+    previousRequest(){
+      let newId = parseInt(this.id) - 1
+      if (newId <=0) {return 0}
+      this.$router.push({ name: 'RequestDetail', params: { id: newId }})
+    },
   },
-  created() {
-
-
-    // let id = this.$store.state.id_request
-    // console.log(id)
-
-    let id = this.img_id
-    this.getImg({id:id});
+  watch: {
+    "$route.params.id": {
+      handler() {
+        this.loadData({id:this.id});
+      }
+    },
   },
   mounted() {
     $(function() {
@@ -159,7 +158,7 @@ export default {
         $(".menu_screen").hide()
       });
     })
-  }
+  },
 }
 
 

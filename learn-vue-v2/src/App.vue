@@ -2,9 +2,9 @@
   <nav>
     <router-link :to="{ name: 'Login'}">Login</router-link> |
     <router-link :to="{ name: 'RequestCreate'}">CreateRequest</router-link> |
-    <router-link :to="{ name: 'RequestDetail'}">Request</router-link> |
+    <router-link :to="{ name: 'RequestDetail', params: { id: 1 }}">Request</router-link> |
     <router-link :to="{ name: 'RequestList'}">RequestList</router-link> |
-    <router-link :to="{ name: 'TestView'}">TestView</router-link> |
+    <router-link :to="{ name: 'TestView', params: { id: 1 }}">TestView</router-link> |
   </nav>
   <router-view/>
 </template>

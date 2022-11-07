@@ -8,7 +8,7 @@ export default createStore({
   state() {
     return {
       id_request: '18',
-      URL_BACKEND_GET_IMG: 'http://127.0.0.1:8000/api/expose/',
+      URL_BACKEND_GET_IMG: 'http://127.0.0.1:8000/api/receive/source/',
       URL_BACKEND_SEND_IMG: 'http://127.0.0.1:8000/api/upload/',
       URL_BACKEND_GET_LIST_REQUEST: 'http://127.0.0.1:8000/api/list/',
     }

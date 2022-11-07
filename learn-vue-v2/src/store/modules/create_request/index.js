@@ -11,19 +11,18 @@ export default ({
             img_id: '3',
         }
     },
-    getters: {
-    },
+    getters: {},
     actions: {
-        sendImg({commit, rootState},  {url=this.state.URL_BACKEND_SEND_IMG, formData}){
-
-
-            axios.post( url, formData, {headers: {'Content-Type': 'multipart/form-data'}})
-                .then(function(x){
+        sendData({commit, rootState}, {url = this.state.URL_BACKEND_SEND_IMG, formData}) {
+            axios.post(url, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+                .then(function (x) {
                     console.log(x.data)
                     console.log('SUCCESS!!');
 
                     commit('SET_ID_IMG', x.data.id)
+                    router.push({ name: 'RequestDetail', params: { id: x.data.id }})
                     // router.push({ name: 'Request'})
+
                     // _this.$store.state.id_request = x.data.id
                     // _this.$router.push({ name: 'Request' })
                 })
@@ -40,7 +39,7 @@ export default ({
         },
     },
     mutations: {
-        SET_ID_IMG (state, img_id) {
+        SET_ID_IMG(state, img_id) {
             state.img_id = img_id
         },
     },

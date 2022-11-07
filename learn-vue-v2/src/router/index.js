@@ -17,7 +17,7 @@ const routes = [
     component: RequestList
   },
   {
-    path: '/request/look',
+    path: '/request/look/:id',
     name: 'RequestDetail',
     component: RequestDetail
   },
@@ -27,7 +27,7 @@ const routes = [
     component: RequestCreate
   },
   {
-  path: '/test',
+  path: '/test/:id',
   name: 'TestView',
   component: TestView
   },

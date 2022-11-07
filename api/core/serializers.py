@@ -10,7 +10,7 @@ class DataSerialiser(serializers.ModelSerializer):
 
     class Meta:
         model = Data
-        fields = ('id', 'time', 'description', 'img', 'user')
+        fields = ('id', 'time', 'name',  'user', 'description', 'img',)
 
     def get_img(self, model):
         request = self.context.get('request')

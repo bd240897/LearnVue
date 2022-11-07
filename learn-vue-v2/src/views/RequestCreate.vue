@@ -1,16 +1,4 @@
 <template>
-<!--  <div>-->
-<!--    <h1>create req</h1>-->
-<!--    <div class="container">-->
-<!--      <div class="large-12 medium-12 small-12 cell">-->
-<!--        <label>File-->
-<!--          <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>-->
-<!--        </label>-->
-<!--        <button v-on:click="submitFile()">Submit</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
   <section class="create_request h-100">
 
     <div class="container h-100">
@@ -60,7 +48,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("create_request", ["sendImg"]),
+    ...mapActions("create_request", ["sendData"]),
 
     handleFileUpload(){
       this.file = this.$refs.file.files[0];
@@ -78,7 +66,7 @@ export default {
         formData.append('name', this.name);
       }
 
-      this.sendImg({formData:formData})
+      this.sendData({formData:formData})
     },
   }
 }

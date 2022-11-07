@@ -75,7 +75,7 @@ class ReceiveDataView(generics.GenericAPIView):
         elif not Data.objects.filter(pk=id).exists():
             return Response(f"File with id = {id} not found!", status=status.HTTP_404_NOT_FOUND)
 
-        request_data = ProcessedData.objects.get(pk=id)
+        request_data = Data.objects.get(pk=id)
         serialized = DataSerialiser(request_data, context={"request": request})
         return Response(serialized.data, status=status.HTTP_200_OK)
 
