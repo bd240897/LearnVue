@@ -58,8 +58,7 @@ export default ({
             state.received_user = received_user
         },
         SET_RECEIVED_TIME (state, received_time) {
-            let time = moment(received_time).format('MM.DD.YYYY')
-            state.received_time = time
+            state.received_time = moment(received_time).format('MM.DD.YYYY')
         },
     },
 })
