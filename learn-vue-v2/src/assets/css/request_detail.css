@@ -1,12 +1,3 @@
-body{
-    background-color: #6BA3F6;
-}
-
-/*необходимо для центрации дочерних элементов по середине экрана*/
-html, body {
-    height: 100%;
-}
-
 .container_white_bg{
     border-radius: 30px;
 }
@@ -68,31 +59,3 @@ html, body {
     background-color: #C8FFCD;
 }
 
-/* Модальное окно с меню */
-
-.menu_screen{
-    display: none;
-}
-
-/* Base styles */
-.menu_screen__container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.8);
-}
-
-.menu_screen__body {
-    /*width: 300px;*/
-    /*min-height: 180px;*/
-    background-color: white;
-}
-
-/* Custom styles */
-.menu_screen__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

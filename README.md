@@ -1,12 +1,12 @@
 # Заметки
 
-##### Урок 1/8. Создание сборки Vue приложения с использованием Node.js и Vue Cli 3 (хочу)
+##### vue| Урок 1/8. Создание сборки Vue приложения с использованием Node.js и Vue Cli 3 (хочу)
 https://www.youtube.com/watch?v=22W54aRGr3Q&list=PLb6TvuNosCJW_N3wqAUYsp7DvUzfyvbvB
 
-##### How to install VUE CLI 3
+##### vue| How to install VUE CLI 3
 https://www.youtube.com/watch?v=zACyNOlanXw
 
-##### install vue 
+##### vue| install vue 
     установка
     vue create <name>
         manually
@@ -14,59 +14,61 @@ https://www.youtube.com/watch?v=zACyNOlanXw
         History mode
         config.json
 
-##### не работал роутер
+##### vue| не работал роутер
     забыл добавить <router-view/> в app
 
-##### загрузка файлов
+##### vue+django| загрузка файлов img 
 vue
 
-https://webdevblog.ru/zagruzka-fajlov-s-pomoshhju-vuejs-i-axios/
+"Загрузка файлов с помощью VueJS и Axios" https://webdevblog.ru/zagruzka-fajlov-s-pomoshhju-vuejs-i-axios/
 
 django
 
-https://www.goodcode.io/articles/django-rest-framework-file-upload/
+"File upload with Django REST Framework" https://www.goodcode.io/articles/django-rest-framework-file-upload/
 
 как сохранять a = Model(img=img) ... a.save()
 
-https://stackoverflow.com/questions/59837348/unable-to-upload-image-to-django-project-getting-form-object-has-no-attribute
+"Unable to upload image to Django Project, getting Form object has no attribute 'save'" https://stackoverflow.com/questions/59837348/unable-to-upload-image-to-django-project-getting-form-object-has-no-attribute
 
 другой подход
 
+"HomeDjangoUploading file using API in Django Rest Framework
+Uploading file using API in Django Rest Framework"
 https://blog.vivekshukla.xyz/uploading-file-using-api-django-rest-framework/
 
-##### send post in axios
-https://stackoverflow.com/questions/47630163/axios-post-request-to-send-form-data
+##### vue| send post in axios
+"axios post request to send form data" https://stackoverflow.com/questions/47630163/axios-post-request-to-send-form-data
 
-##### send data i ger query
+##### vue| send data i ger query
+"Send object with axios get request [duplicate]"
+
 https://stackoverflow.com/questions/46404051/send-object-with-axios-get-request
 
     axios.get('/api/updatecart', { params: { product: this.product } }).then(...)
 
-##### push in vue
-https://stackoverflow.com/questions/53340049/typeerror-this-route-push-is-not-a-function-vue-js-and-uncaught-typeerror-can
+##### vue| push in vue
+"TypeError: this.$route.push is not a function vue.js and Uncaught TypeError: Cannot read property 'push' of undefined" https://stackoverflow.com/questions/53340049/typeerror-this-route-push-is-not-a-function-vue-js-and-uncaught-typeerror-can
 
-##### get query param by django
-https://stackoverflow.com/questions/58207014/how-to-access-get-request-data-in-django-rest-framework
+##### django| get query param by django
+"How to access get request data in django rest framework" https://stackoverflow.com/questions/58207014/how-to-access-get-request-data-in-django-rest-framework
 
     test_data_var = request.query_params['testData']
 
-##### // jetbrains
+##### other| jetbrains
     www.jetbrains.com
     create new account every month?
 
-##### // work with axios
+##### vue| work with axios
     https://github.com/axios/axios
     npm install axios
 
-##### // promise
-https://metanit.com/web/javascript/17.6.php
-https://habr.com/ru/post/439746/
+##### js| promise
+"Async и await" https://metanit.com/web/javascript/17.6.php
+"Разбираемся с промисами в JavaScript
+" https://habr.com/ru/post/439746/
 
-##### // хорошие примеры тут
-https://habr.com/ru/post/439746/
-
-##### // создание функции для промиса с аргументами
-https://translated.turbopages.org/proxy_u/en-ru.ru.1eb67525-63611c7d-acec761a-74722d776562/https/stackoverflow.com/questions/35318442/how-to-pass-parameter-to-a-promise-function
+##### js| создание функции для промиса с аргументами
+"How to pass parameter to a promise function" https://stackoverflow.com/questions/35318442/how-to-pass-parameter-to-a-promise-function
 
     var some_function = function (username, password) {
         return new Promise(function (resolve, reject) {
@@ -81,8 +83,8 @@ https://translated.turbopages.org/proxy_u/en-ru.ru.1eb67525-63611c7d-acec761a-74
         });
     };
 
-##### // правильная обрабокта axios
-https://medium.com/nuances-of-programming/обработка-ошибок-api-в-веб-приложении-используя-axios-932e9d66a526
+##### vue| правильная обрабокта axios
+"Обработка ошибок API в веб-приложении, используя Axios" https://medium.com/nuances-of-programming/обработка-ошибок-api-в-веб-приложении-используя-axios-932e9d66a526
 
     axios.post(url, data)
         .then(res => {
@@ -100,7 +102,7 @@ https://medium.com/nuances-of-programming/обработка-ошибок-api-в
             }
     })
 
-##### // fetch
+##### js| fetch
     try {
         const response = await fetch("api/fruit/all",{method:"GET"});
         const data = await response.json();
@@ -111,17 +113,20 @@ https://medium.com/nuances-of-programming/обработка-ошибок-api-в
     }
 
 
-##### // на сервере используем
-https://stackoverflow.com/questions/65950850/error-while-importing-axios-uncaught-syntaxerror-cannot-use-import-statement-o
+##### vue| на сервере используем
+"Error While Importing Axios: Uncaught SyntaxError: Cannot use import statement outside a module
+" https://stackoverflow.com/questions/65950850/error-while-importing-axios-uncaught-syntaxerror-cannot-use-import-statement-o
     
     на сервере
     const axios = require('axios');
     на фронет
     import axios from 'axios'
 
-##### // http-server
-https://www.npmjs.com/package/http-server
-https://www.how2shout.com/how-to/how-to-install-and-use-node-js-http-server-web-server-via-npm.html
+##### js| http-server
+"http-server: a simple static HTTP server
+" https://www.npmjs.com/package/http-server
+"How to install and use Node.js http-server (Web server) via NPM
+" https://www.how2shout.com/how-to/how-to-install-and-use-node-js-http-server-web-server-via-npm.html
 
     npm install http-server
     # name of file index.html
@@ -131,22 +136,23 @@ https://www.how2shout.com/how-to/how-to-install-and-use-node-js-http-server-web-
         "dev": "http-server -p 8082"
     },
 
-##### касперский хак
+##### other| касперский хак
 https://reg.secureitcup.com/todo
 
-##### push in vue
-https://stackoverflow.com/questions/53340049/typeerror-this-route-push-is-not-a-function-vue-js-and-uncaught-typeerror-can
+##### vue| push in vue
+"TypeError: this.$route.push is not a function vue.js and Uncaught TypeError: Cannot read property 'push' of undefined
+" https://stackoverflow.com/questions/53340049/typeerror-this-route-push-is-not-a-function-vue-js-and-uncaught-typeerror-can
 
-##### get query param by django
-https://stackoverflow.com/questions/58207014/how-to-access-get-request-data-in-django-rest-framework
+##### django| get query param by django
+"How to access get request data in django rest framework" https://stackoverflow.com/questions/58207014/how-to-access-get-request-data-in-django-rest-framework
 test_data_var = request.query_params['testData']
 
-##### create vuex
+##### vue| create vuex
 https://www.youtube.com/watch?v=TQ69S8h1VVU
 https://github.com/qirolab/learn-vuex-with-basic-ecommerce-example
 
-##### аргументы для функций именованные
-https://habr.com/ru/company/ruvds/blog/430382/
+##### js| аргументы для функций именованные
+"Руководство по JavaScript, часть 4: функции" https://habr.com/ru/company/ruvds/blog/430382/
 
 
 # Курсы 
@@ -374,12 +380,236 @@ https://www.youtube.com/watch?v=LPo29ygf0wA
 
 
 ##### вертикальая лини через границы
-https://html5css.ru/howto/howto_css_vertical_line.php
-border-left: 6px solid green;
+"Как сделать - вертикальную линию" https://html5css.ru/howto/howto_css_vertical_line.php
+    border-left: 6px solid green;
 
 ##### прибить футер к ннизу
-https://falbar.ru/article/luchshij-sposob-prizhat-futer-ispolzuya-flexbox
-https://www.youtube.com/watch?v=GGiHxIOmPaE&list=PLNkWIWHIRwMG0EUBS8rvTRVNL9IcxcawW&index=12
-parant flex-direction column
-min-heaight: 100hv
-section flex-grow 1
+"Лучший способ прижать футер используя flexbox" https://falbar.ru/article/luchshij-sposob-prizhat-futer-ispolzuya-flexbox
+"CSS Flexbox #11 Практические примеры использования Flexbox (Practical examples)
+" https://www.youtube.com/watch?v=GGiHxIOmPaE&list=PLNkWIWHIRwMG0EUBS8rvTRVNL9IcxcawW&index=12
+    parant flex-direction column
+    min-heaight: 100hv
+    section flex-grow 1
+
+##### Работа с полями auto_now_add и auto_now в Django и timestamp
+https://fixmypc.ru/post/ispolzovanie-polei-v-python-django-auto-now-i-auto-now-add-na-primerakh-pri-rabote-s-metkami-vremeni/
+
+        # если не передали файл в запросе
+        if 'file' not in request.data:
+            raise ParseError("Empty content")
+
+        f = request.data['file']
+
+        # проверка формата файла
+        try:
+            img = Image.open(f)
+            img.verify()
+        except:
+            raise ParseError("Unsupported image type")
+
+        # RequestData.img.save(f.name, f, save=True)
+        a = Data(img=f)
+        a.save()
+        a.create_processed_data()
+
+        # если попутно передали описание
+        if request.data.get('description'):
+            a.description = request.data.get('description')
+            a.save()
+
+##### имя юзера в API а не id
+https://stackoverflow.com/questions/14896825/django-showing-username-and-not-id-how
+
+
+##### css блок по центру - нужно пркоидыввать h-100
+https://myrusakov.ru/bootstrap-center-block.html
+
+##### задать радиус скругления
+https://www.w3schools.com/css/css3_borders.asp
+
+##### сделать блок кликабельным
+https://neolot.com/uroki-i-priemy/kak-sdelat-klikabelnyj-blok
+    div {cursor: pointer;}
+
+
+##### padding and margin
+https://developer.mozilla.org/ru/docs/Web/CSS/margin
+    /* Применяется ко всем четырём сторонам */
+    margin: 1em;
+    
+    /* по вертикали | по горизонтали */
+    margin: 5% auto;
+    
+    /* сверху | горизонтально | снизу */
+    margin: 1em auto 2em;
+    
+    /* сверху | справа | снизу | слева */
+    margin: 2px 1em 0 auto;
+
+##### вертикальая лини через границы
+https://html5css.ru/howto/howto_css_vertical_line.php
+    border-left: 6px solid green;
+
+##### css| прибить футер к ннизу
+"Лучший способ прижать футер используя flexbox" https://falbar.ru/article/luchshij-sposob-prizhat-futer-ispolzuya-flexbox
+"CSS Flexbox #11 Практические примеры использования Flexbox (Practical examples)
+"https://www.youtube.com/watch?v=GGiHxIOmPaE&list=PLNkWIWHIRwMG0EUBS8rvTRVNL9IcxcawW&index=12
+    parant flex-direction column
+    min-heaight: 100hv
+    section flex-grow 1
+
+##### js| скрыть/показать элементв jquery
+"jQuery & CSS - Remove/Add display:none" https://stackoverflow.com/questions/5059596/jquery-css-remove-add-displaynone
+    $('.news').hide();
+    $('.news').show();
+    !!! запросы jquery только после его подключения
+
+##### js/ функция click jquery
+https://api.jquery.com/click/
+    $( "#target" ).click(function() {
+        alert( "Handler for .click() called." );
+    });
+
+##### скруглить картинку
+    border-radius: 50%;
+
+##### vue| import css in vue.js
+    vue.config.js
+    configureWebpack: {
+    resolve: {extensions: ['', '.js', '.jsx', '.css']},
+    component
+    <style scoped>
+      @import "../assets/css/login.css";
+    </style>
+
+##### vue| install jqeru vue.js
+    npm install jquery
+    import $ from 'jquery'
+
+##### vue| обзятальео использовать document ready in vue.js
+    "$( document ).ready()" https://learn.jquery.com/using-jquery-core/document-ready/
+    $(function() {
+        console.log( "ready!" );
+    });
+
+
+##### other| beget add url to VPS
+    add DNS into req.ru
+    ns1.beget.com
+    ns2.beget.com
+    ns1.beget.pro
+    ns2.beget.pro
+    вкладка Управление записями DNS
+    изменить А - запись у домена на IP сервера
+    www.win-plus-ners.ru
+    добавить А - запись к домену
+    win-plus-ners.ru
+
+##### other| Как поднять домашний сервер со своим доменом своими руками?
+https://www.youtube.com/watch?v=avl5rVi-HNo
+
+##### js| как использовать mongo
+https://www.youtube.com/watch?time_continue=2&v=LNvmI8a9jwY&feature=emb_logo
+
+##### vue| установить параметры запроса
+"How to set URL query params in Vue with Vue-Router" https://stackoverflow.com/questions/40382388/how-to-set-url-query-params-in-vue-with-vue-router
+    routes: [
+        { name: 'user-view', path: '/user/:id', component: UserView },
+        // other routes
+        ]
+    this.$router.replace({ name: "user-view", params: {id:"123"}, query: {q1: "q1"} })
+    this.$router.replace({path: "/user/123", query:{q1: "q1"}})
+    this.$route.params.id
+    this.$route.query.q1
+
+##### vue| достатьи параметры запроса
+"routing with params in vuejs using router-link" https://stackoverflow.com/questions/45734357/routing-with-params-in-vuejs-using-router-link
+    <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
+
+##### vue| работае с датами
+"Module not found: Can't resolve 'moment' in 'node_modules\react-moment\dist' in reactjs" https://stackoverflow.com/questions/63137095/module-not-found-cant-resolve-moment-in-node-modules-react-moment-dist-in
+    npm i moment
+    import moment from 'moment'
+    moment(this.date).format'MM/DD/YYYY hh:mm A'
+
+
+##### vue| ошбка! чтоб страница обновлялассь на
+нужно поставить водчер на изменение параметров страницы
+    watch: {
+        "$route.params.id": {
+            handler() {
+            this.getImg({id:this.id});
+            }
+        },
+    },
+
+##### vue| модальное окно во vue - плохое - перекрывает стили бутстрап
+"Создание модального компонента с помощью Vue.js
+" https://habr.com/ru/post/349306/
+
+##### vue| ссылки в виде div
+"Vue.js 2.0 router link in a div component" https://stackoverflow.com/questions/41168307/vue-js-2-0-router-link-in-a-div-component
+    <router-link to="/about" custom v-slot="{ navigate }">
+      <div role="link" @click="navigate">test</div>
+    </router-link>
+
+##### vue| несколько ссылок в одном v-on:
+"How to call multiple functions with @click in vue?" https://stackoverflow.com/questions/38744932/how-to-call-multiple-functions-with-click-in-vue
+    <div @click="firstFunction(); secondFunction();"></div>
+
+##### vue| кнопка добавления в правом верхнем углу элементов уровня блока
+"adding button to top right of block level elements" https://stackoverflow.com/questions/6721063/adding-button-to-top-right-of-block-level-elements
+    div {
+        position: relative;
+    }
+    div button {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+##### vue| Display different Vuejs components for mobile browsers v1
+https://stackoverflow.com/questions/48515023/display-different-vuejs-components-for-mobile-browsers
+    <div v-if="!isMobile()">
+      <desktop>
+      </desktop>
+    </div>
+    <div v-else>
+      <mobile>
+      </mobile>
+    </div>
+    methods: {
+     isMobile() {
+       if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+         return true
+       } else {
+         return false
+       }
+     }
+    }
+
+##### vue| Display different Vuejs components for mobile browsers v2
+https://stackoverflow.com/questions/48515023/display-different-vuejs-components-for-mobile-browsers
+    <production-list v-if="!isMobile()"></production-list>
+    <production-list-mobile v-else></production-list-mobile>
+
+
+##### vue| Как отслеживать ширину экрана Vue? v3
+https://qna.habr.com/q/625094
+    data: () => ({
+    width: 0,
+        ...
+    }),
+    methods: {
+        updateWidth() {
+            this.width = window.innerWidth;
+        },
+        ...
+        },
+    created() {
+        window.addEventListener('resize', this.updateWidth);
+    },
+
+[//]: # (TODO)
+# повторение НА 
+CSS Flexbox #11 Практические примеры использования Flexbox (Practical examples)

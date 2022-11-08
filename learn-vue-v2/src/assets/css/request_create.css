@@ -1,12 +1,3 @@
-body{
-    background-color: #6BA3F6;
-}
-
-/*необходимо для центрации дочерних элементов по середине экрана*/
-html, body {
-    height: 100%;
-}
-
 .create__col{
     border-radius: 30px;
 }

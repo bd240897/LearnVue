@@ -113,4 +113,6 @@ class RequestListView(generics.ListAPIView):
         # return Comment.objects.filter(post=post)
         return super().get_queryset()
 
-
+from django.core.files import File
+class TestView():
+    pass
