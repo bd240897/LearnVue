@@ -29,3 +29,10 @@ class ProcessedData(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class TestFile(models.Model):
+    file = models.FileField(upload_to="learnVue/file/")
+
+    def __str__(self):
+        return str(self.id)

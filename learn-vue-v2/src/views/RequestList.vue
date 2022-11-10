@@ -13,59 +13,25 @@
 
           <div class="list_body">
 
-            <div class="request mb-4">
+            <div class="request mb-4" v-for="item in data" v-on:click="goToRequest(item.id)">
+
               <div class="row mx-1 py-2">
 
                 <div class="col-md-1 col-sm-2 col-2 request__text request__text__number">
-                  #1
+                  #{{item.id}}
                 </div>
                 <div class="col-md-5 col-sm-10 col-10 request__text request__text__name">
-                  Название запроса
+                  {{item.name || "default "}}
                 </div>
                 <div class="col-md-3 col-sm-1 request__text request__text__date">
-                  10.10.2010
+                  {{ correctTime(item.time) }}
                 </div>
                 <div class="col-md-3 col-sm-1 request__text request__text__status">
-                  Обработано
+                  {{item.status || "unknown "}}
                 </div>
               </div>
             </div>
 
-            <div class="request mb-4">
-              <div class="row mx-1 py-2">
-
-                <div class="col-md-1 col-sm-2 col-2 request__text request__text__number">
-                  #1
-                </div>
-                <div class="col-md-5 col-sm-10 col-10 request__text request__text__name">
-                  Название запроса
-                </div>
-                <div class="col-md-3 col-sm-1 request__text request__text__date">
-                  10.10.2010
-                </div>
-                <div class="col-md-3 col-sm-1 request__text request__text__status">
-                  Обработано
-                </div>
-              </div>
-            </div>
-
-            <div class="request mb-4">
-              <div class="row mx-1 py-2">
-
-                <div class="col-md-1 col-sm-2 col-2 request__text request__text__number">
-                  #1
-                </div>
-                <div class="col-md-5 col-sm-10 col-10 request__text request__text__name">
-                  Название запроса
-                </div>
-                <div class="col-md-3 col-sm-1 request__text request__text__date">
-                  10.10.2010
-                </div>
-                <div class="col-md-3 col-sm-1 request__text request__text__status">
-                  Обработано
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="list_pagination d-flex justify-content-center">
@@ -94,18 +60,31 @@
 
 
 <script>
-
 import {mapActions, mapState} from 'vuex'
+import moment from "moment";
+import router from "@/router";
 export default {
   name: "RequestList",
+  data() {
+    return {
+      a: '',
+    }
+  },
   computed: {
-    ...mapState('request_list', ['img_list',]),
+    ...mapState('request_list', ['data',]),
   },
   methods: {
-    ...mapActions('request_list', ['getImgList',])
+    ...mapActions('request_list', ['getDataList', ]),
+    correctTime(time="2022-11-05T00:40:53.527308+03:00") {
+      return moment(time).format('MM.DD.YYYY')
+    },
+    goToRequest(id){
+      this.$router.push({ name: 'RequestDetail', params: { id: id }})
+    },
   },
   created() {
-    this.getImgList({});
+    this.getDataList({});
+    this.a = this.correctTime()
   }
 }
 </script>

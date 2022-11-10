@@ -1,22 +1,22 @@
 import axios from "axios";
+import moment from 'moment'
 
 export default ({
     namespaced: true,
     state() {
         return {
-            img_list: [],
+            data: [],
         }
     },
-    getters: {
-    },
+    getters: {},
     actions: {
-        getImgList({commit, rootState},  { url=this.state.URL_BACKEND_GET_LIST_REQUEST, }) {
+        getDataList({commit, rootState}, {url = this.state.URL_BACKEND_GET_LIST_REQUEST,}) {
             axios.get(url)
-                .then(function(x){
+                .then(function (x) {
                     console.log(x.data)
                     console.log('SUCCESS!!');
 
-                    commit('SET_RECEIVED_IMG_LIST', x.data)
+                    commit('SET_RECEIVED_DATA_LIST', x.data)
                 })
                 .catch(err => {
                     console.log(err)
@@ -29,10 +29,14 @@ export default ({
                     }
                 })
         },
+        // correctTime({commit, rootState}, time="2022-11-05T00:40:53.527308+03:00") {
+        //     return moment(time).format('MM.DD.YYYY')
+        // },
     },
+
     mutations: {
-        SET_RECEIVED_IMG_LIST (state, img_list) {
-            state.img_list = img_list
+        SET_RECEIVED_DATA_LIST(state, data) {
+            state.data = data
         },
     },
 })
