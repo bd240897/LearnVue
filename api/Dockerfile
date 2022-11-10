@@ -2,7 +2,7 @@
 FROM python:3.8.6-alpine
 
 # рабочая директория внутри проекта
-WORKDIR /home/project/lms
+WORKDIR /home/project/api
 
 # переменные окружения для python
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -25,6 +25,6 @@ RUN pip install -r req.txt
 #RUN python manage.py migrate
 
 RUN chmod +x ./entrypoint.sh
-COPY ./entrypoint.sh ./home/project/lms
-ENTRYPOINT ["./entrypoint.sh"]
+#COPY ./entrypoint.sh ./home/project/api
+#ENTRYPOINT ["./entrypoint.sh"]
 
