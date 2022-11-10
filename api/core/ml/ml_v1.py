@@ -124,26 +124,36 @@ def predict_one_sample(model, inputs):
 
 # 5. ЗАГРУЗКА МОДЕЛИ ()
 
-# загрузка модели
-model = SimpleCnn(n_classes=N_CLASSES)
-model.load_state_dict(torch.load(PATH_MODEL, map_location=torch.device('cpu')))
-model.eval() # model.train() - это переключатель
 
-# загурзка кодирования лейблов
-label_encoder = pickle.load(open(PATH_LABEL_ENCODER, 'rb'))
+def make_prediction(file=PATH_IMG_FILE):
+    """Подгрузить модели и сделать предсказание"""
 
-# загрузка списка меток
-with open(PATH_LABELS_LIST, 'r') as f:
-    labels_list = json.load(f)
+    # загрузка модели
+    model = SimpleCnn(n_classes=N_CLASSES)
+    model.load_state_dict(torch.load(PATH_MODEL, map_location=torch.device('cpu')))
+    model.eval()  # model.train() - это переключатель
 
-# 6. ДЕЙСТВИЯ
+    # загурзка кодирования лейблов
+    label_encoder = pickle.load(open(PATH_LABEL_ENCODER, 'rb'))
 
-# обработка исходных данных
-one_pearson = do_transform(file=PATH_IMG_FILE)
-# предсказание модели
-probs_im = predict_one_sample(model, one_pearson.unsqueeze(0))
-# выбор индекса максимального аругменты
-id_y_pred = np.argmax(probs_im)
-# определение имени предсказанного класса класса
-y_pred = label_encoder.classes_[id_y_pred]
-print(y_pred)
+    # загрузка списка меток
+    with open(PATH_LABELS_LIST, 'r') as f:
+        labels_list = json.load(f)
+
+    # 6. ДЕЙСТВИЯ
+
+    # обработка исходных данных
+    one_pearson = do_transform(file=file)
+    # предсказание модели
+    probs_im = predict_one_sample(model, one_pearson.unsqueeze(0))
+    # выбор индекса максимального аругменты
+    id_y_pred = np.argmax(probs_im)
+    # определение имени предсказанного класса класса
+    y_pred = label_encoder.classes_[id_y_pred]
+    print(y_pred)
+    return y_pred
+
+
+if __name__ == '__main__':
+    user_file = r"C:\Users\Дмитрий\WebstormProjects\LearnVue\api\media\third_img.jpg"
+    make_prediction(file=user_file)

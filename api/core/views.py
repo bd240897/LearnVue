@@ -1,3 +1,5 @@
+import os.path
+
 from numpy import unicode
 from rest_framework.response import Response
 from rest_framework.exceptions import ParseError
@@ -6,11 +8,46 @@ from rest_framework import viewsets, status, generics, pagination, filters, perm
 from rest_framework.views import APIView
 import urllib.parse
 from PIL import Image
+
 from .models import Data, ProcessedData
 from .serializers import DataSerialiser, ProcessedDataSerialiser
 
 ############### LEARN VIEW #######################
+# TODO delete
 
+from .ml.ml_v1_1 import make_prediction
+
+class GetPredictionView(generics.GenericAPIView):
+    parser_class = (FileUploadParser,)
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+
+        id = request.GET.get('id')
+        if not id:
+            return Response(f"You didn't send id", status=status.HTTP_404_NOT_FOUND)
+
+        # # TODO test without files
+        # # print(settings.BASE_DIR)
+        # # temp = make_prediction()
+        # # print(temp)
+
+        # TODO make \ or /
+        my_img = Data.objects.get(pk=8)
+        path_base_dir = settings.BASE_DIR # r"C:\Users\Дмитрий\WebstormProjects\LearnVue\api" # settings.BASE_DIR
+        print(path_base_dir)
+        path_img_dir_raw = my_img.img.url # r"/media/learnVue/post_image/borisov_2.JPG" # my_img.img.url
+        split_path = path_img_dir_raw.split("/")
+        path_img_dir = os.path.join(*split_path)
+        print(path_img_dir)
+        path_full_img = os.path.join(path_base_dir, path_img_dir)
+        print(path_full_img)
+
+
+        temp = make_prediction(path_full_img)
+        print(temp)
+
+        return Response("TODO", status=status.HTTP_201_CREATED)
 
 class UploadView(generics.GenericAPIView):
     """Загрузка файлов и описания"""
