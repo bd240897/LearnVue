@@ -10,7 +10,7 @@ ENV PYTHONUNBUFFERED 1
 
 # Устанавливаем зависимости для Postgre
 RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev
+    && apk add postgresql-dev gcc python3-dev musl-dev libc-dev libffi-dev
 
 # чтобы работала pillow
 RUN apk --update add libxml2-dev libxslt-dev libffi-dev gcc musl-dev libgcc openssl-dev curl
