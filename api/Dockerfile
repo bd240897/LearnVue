@@ -8,14 +8,6 @@ WORKDIR /home/project/api
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apk add bash openssh curl ca-certificates openssl less htop \
-            g++ make wget rsync \
-            build-base libpng-dev freetype-dev libexecinfo-dev openblas-dev libgomp lapack-dev \
-            libgcc libquadmath musl  \
-            libgfortran \
-            lapack-dev
-
-
 # Устанавливаем зависимости для Postgres
 RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev libc-dev libffi-dev
@@ -23,14 +15,13 @@ RUN apk update \
 # matplotlib
 RUN apk add g++ jpeg-dev zlib-dev libjpeg make
 
-# ckipy
-RUN apk add -
-        bash openssh curl ca-certificates openssl less htop \
-		g++ make wget rsync \
-        build-base libpng-dev freetype-dev libexecinfo-dev openblas-dev libgomp lapack-dev \
-		libgcc libquadmath musl  \
-		libgfortran \
-		lapack-dev \
+# skipy
+RUN apk add bash openssh curl ca-certificates openssl less htop \
+            g++ make wget rsync \
+            build-base libpng-dev freetype-dev libexecinfo-dev openblas-dev libgomp lapack-dev \
+            libgcc libquadmath musl  \
+            libgfortran \
+            lapack-dev
 
 # чтобы работала pillow
 RUN apk --update add libxml2-dev libxslt-dev libffi-dev gcc musl-dev libgcc openssl-dev curl
