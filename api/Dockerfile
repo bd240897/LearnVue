@@ -8,6 +8,10 @@ WORKDIR /home/project/api
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+
+# matplotlib
+RUN apk add g++ jpeg-dev zlib-dev libjpeg make
+
 # Устанавливаем зависимости для Postgre
 RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev libc-dev libffi-dev
