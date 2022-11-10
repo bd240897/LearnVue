@@ -8,17 +8,12 @@ WORKDIR /home/project/api
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-
-
-
-
-RUN apk add -
-        bash openssh curl ca-certificates openssl less htop \
-		g++ make wget rsync \
-        build-base libpng-dev freetype-dev libexecinfo-dev openblas-dev libgomp lapack-dev \
-		libgcc libquadmath musl  \
-		libgfortran \
-		lapack-dev \
+RUN apk add bash openssh curl ca-certificates openssl less htop \
+            g++ make wget rsync \
+            build-base libpng-dev freetype-dev libexecinfo-dev openblas-dev libgomp lapack-dev \
+            libgcc libquadmath musl  \
+            libgfortran \
+            lapack-dev
 
 
 # Устанавливаем зависимости для Postgres
