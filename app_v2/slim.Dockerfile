@@ -16,7 +16,8 @@ RUN apt-get install -y --no-install-recommends gcc libc-dev
 RUN apt-get install -y build-essential libsqlite3-dev libpng-dev libjpeg-dev
 
 # postgresql
-RUN apt-get install -y postgresql postgresql-contrib gcc python3-dev musl-dev
+#RUN apt-get install -y postgresql postgresql-contrib musl-dev
+RUN apt-get install libpq-dev gcc
 
 # other
 RUN apt-get install -y build-essential g++ flex bison gperf ruby perl \
