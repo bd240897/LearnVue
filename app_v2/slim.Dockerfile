@@ -29,7 +29,7 @@ libpng-dev libjpeg-dev python libx11-dev libxext-dev
 RUN pip install --upgrade pip
 # копируем содержимое текущей папки в контейнер
 COPY . .
-RUN pip install -r req.txt
+RUN pip install -r --no-cache-dir req.txt
 
 #RUN python manage.py migrate
 
