@@ -5,7 +5,7 @@ services:
     # Берем Dockerfile из каталога app
     build:
       context: ./app_v2
-      dockerfile: Dockerfile
+      dockerfile: slim.Dockerfile
     # Запускаем тестовый сервер
     command: python manage.py runserver 0.0.0.0:8000
     ports:
