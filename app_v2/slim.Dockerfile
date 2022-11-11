@@ -17,7 +17,8 @@ RUN apt-get install -y build-essential libsqlite3-dev libpng-dev libjpeg-dev
 
 # postgresql
 #RUN apt-get install -y postgresql postgresql-contrib musl-dev
-RUN apt-get install libpq-dev gcc
+RUN apt-get -y install libpq-dev gcc
+# unixodbc unixodbc-dev
 
 # other
 RUN apt-get install -y build-essential g++ flex bison gperf ruby perl \
