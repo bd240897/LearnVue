@@ -13,16 +13,15 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends gcc libc-dev
 
 # django
-RUN apt-get update -qq && apt-get install -y build-essential libsqlite3-dev libpng-dev libjpeg-dev
+RUN apt-get install -y build-essential libsqlite3-dev libpng-dev libjpeg-dev
 
 # postgresql
 RUN apt-get install -y postgresql postgresql-contrib gcc python3-dev musl-dev
 
 # other
-RUN apt-get install build-essential g++ flex bison gperf ruby perl \
+RUN apt-get install -y build-essential g++ flex bison gperf ruby perl \
 libfontconfig1-dev libicu-dev libfreetype6 libssl-dev \
 libpng-dev libjpeg-dev python libx11-dev libxext-dev
-
 
 # устанавливаем зависимости
 RUN pip install --upgrade pip
