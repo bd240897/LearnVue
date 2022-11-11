@@ -13,3 +13,9 @@ services:
     # Файл содержащий переменные для контейнера
     env_file:
       - ./.env.dev
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 2048M
