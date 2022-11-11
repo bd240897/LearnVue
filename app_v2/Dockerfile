@@ -20,7 +20,8 @@ RUN apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-de
 RUN pip install --upgrade pip
 # копируем содержимое текущей папки в контейнер
 COPY . .
-RUN pip install -r req.txt
+#RUN pip install -r req.txt
+RUN pip install -r req.txt --no-cache-dir
 
 #RUN python manage.py migrate
 
