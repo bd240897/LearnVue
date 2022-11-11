@@ -21,7 +21,3 @@ urlpatterns = [
     path("comments/<slug:post_slug>/", CommentView.as_view()), # для получение
     path("test/", TestView.as_view()), # для получение
 ]
-from .views import UploadView, ExposeView, RequestListView
-urlpatterns += [path("upload/", UploadView.as_view()),
-                path("expose/", ExposeView.as_view()),
-                path("list/", RequestListView.as_view())]

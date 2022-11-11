@@ -105,25 +105,3 @@ class CommentSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'url': {'lookup_field': 'id'}
         }
-
-############### LEARN VIEW #######################
-from .models import RequestData
-
-class PictureSerialiser(serializers.ModelSerializer):
-    img = serializers.SerializerMethodField()
-
-    class Meta:
-        model = RequestData
-        fields = ('id', 'img')
-
-    def get_img(self, model):
-        request = self.context.get('request')
-        img = model.img.url
-        return request.build_absolute_uri(img)
-
-class RequestDataSerialiser(serializers.ModelSerializer):
-
-    class Meta:
-        model = RequestData
-        fields = ('id', 'img')
-

@@ -33,25 +33,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
-
-############### LEARN VIEW #######################
-class Data(models.Model):
-    """Комментарии"""
-    time = models.DateTimeField(default=timezone.now)
-    description = models.CharField(max_length=200)
-    img = models.ImageField(upload_to="learnVue/post_image/")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='data_user')
-
-    def __str__(self):
-        return str(self.id)
-
-
-class ProcessedData(models.Model):
-    """Комментарии"""
-
-    img = models.ImageField(upload_to="learnVue/post_image/")
-    data = models.ForeignKey(Data, on_delete=models.CASCADE, related_name='processed_data_data')
-
-
-    def __str__(self):
-        return str(self.id)

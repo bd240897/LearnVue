@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from .serializers import PostSerializer, ContactSerailizer, RegisterSerializer, UserSerializer, CommentSerializer
 from .models import Post
 from rest_framework.response import Response
@@ -172,60 +172,3 @@ class TestView(generics.GenericAPIView):
 # generics.ListCreateAPIView
 
 # https://habr.com/ru/company/yandex_praktikum/blog/561696/
-
-############### LEARN VIEW #######################
-from PIL import Image
-from rest_framework.exceptions import ParseError
-from rest_framework.parsers import FileUploadParser
-from .models import RequestData
-from .serializers import PictureSerialiser, RequestDataSerialiser
-
-class UploadView(generics.GenericAPIView):
-    parser_class = (FileUploadParser,)
-    permission_classes = [permissions.AllowAny]
-
-    def post(self, request, format=None):
-        if 'file' not in request.data:
-            raise ParseError("Empty content")
-
-        f = request.data['file']
-
-        try:
-            img = Image.open(f)
-            img.verify()
-        except:
-            raise ParseError("Unsupported image type")
-
-        # RequestData.img.save(f.name, f, save=True)
-        a = RequestData(img=f)
-        a.save()
-
-        return Response({'id': a.pk}, status=status.HTTP_201_CREATED)
-
-
-class ExposeView(generics.GenericAPIView):
-    permission_classes = [permissions.AllowAny]
-
-    def get(self, request):
-        id = request.query_params.get('id')
-        if not id:
-            return Response(f"You didn't send id", status=status.HTTP_404_NOT_FOUND)
-        elif not RequestData.objects.filter(pk=id).exists():
-            return Response(f"File with id = {id} not found!", status=status.HTTP_404_NOT_FOUND)
-
-        request_data = RequestData.objects.get(pk=id)
-        serialized = PictureSerialiser(request_data, context={"request": request})
-        return Response(serialized.data, status=status.HTTP_200_OK)
-
-class RequestListView(generics.ListAPIView):
-    queryset = RequestData.objects.all()
-    serializer_class = RequestDataSerialiser
-    permission_classes = [permissions.AllowAny]
-
-    def get_queryset(self):
-        # post_slug = self.kwargs['post_slug'].lower()
-        # post = Post.objects.get(slug=post_slug)
-        # return Comment.objects.filter(post=post)
-        return super().get_queryset()
-
-
